@@ -1,12 +1,14 @@
 package extractor
 
 import (
+	"bytes"
 	"fmt"
 	"io/ioutil"
 	"os"
 	"path/filepath"
 	"regexp"
 	"strings"
+	"unicode"
 )
 
 var founds []string
@@ -51,12 +53,23 @@ func extractTextFromFile(path string) error {
 
 	var indexes = regexpUrls.FindAllIndex(textBytes, -1)
 
+	isPrintableASCII := func(s string) bool {
+		for _, r := range s {
+			if r < 32 || r > 126 {
+				return false
+			}
+		}
+		return true
+	}
+
 	if len(indexes) != 0 {
 		for _, k := range indexes {
 			var foundStart = k[0]
 			var foundEnd = k[1]
 			var link = string(textBytes[foundStart:foundEnd])
-			founds = append(founds, link)
+			if isPrintableASCII(link) {
+				founds = append(founds, link)
+			}
 		}
 	}
 	return nil
