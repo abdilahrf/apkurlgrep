@@ -18,7 +18,7 @@ import (
 
 func main() {
 
-	parser := argparse.NewParser("apkurlgrep", "ApkUrlGrep - Extract endpoints from APK files")
+	parser := argparse.NewParser("apkurlgrep", "ApkUrlGrep - Extract endpoints from APK files V1.0")
 	apk := parser.String("a", "apk", &argparse.Options{Required: true, Help: "Input a path to APK file."})
 
 	err := parser.Parse(os.Args)
