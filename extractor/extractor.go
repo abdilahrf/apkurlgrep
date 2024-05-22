@@ -30,9 +30,23 @@ func unique(strSlice []string) []string {
 }
 
 func extractTextFromFile(path string) error {
-	var textBytes, er = ioutil.ReadFile(path)
-	if er != nil {
-		panic(er)
+	var textBytes []byte
+	var err error
+
+	if strings.HasSuffix(path, ".so") {
+		cmd := exec.Command("strings", path)
+		var out bytes.Buffer
+		cmd.Stdout = &out
+		err = cmd.Run()
+		if err != nil {
+			panic(err)
+		}
+		textBytes = out.Bytes()
+	} else {
+		textBytes, err = ioutil.ReadFile(path)
+		if err != nil {
+			panic(err)
+		}
 	}
 
 	var indexes = regexpUrls.FindAllIndex(textBytes, -1)
