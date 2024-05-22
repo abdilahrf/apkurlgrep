@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"regexp"
 	"strings"
-	"unicode"
 )
 
 var founds []string
