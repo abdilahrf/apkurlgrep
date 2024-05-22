@@ -25,7 +25,7 @@ func IsFontExt(ext string) bool {
 }
 
 func IsOtherExt(ext string) bool {
-	return strings.EqualFold(ext, ".so")
+	return strings.EqualFold(ext, ".oss")
 }
 
 func SkipExtension(filename string) bool {
