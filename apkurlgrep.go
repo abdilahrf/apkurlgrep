@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"github.com/akamensky/argparse"
 	"github.com/abdilahrf/apkurlgrep/command/apktool"
-	dependency "github.com/ndelphit/apkurlgrep/command/dependency"
+	dependency "github.com/abdilahrf/apkurlgrep/command/dependency"
 	"github.com/abdilahrf/apkurlgrep/directory"
 	"github.com/abdilahrf/apkurlgrep/extractor"
 	"os"
