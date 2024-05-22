@@ -7,10 +7,10 @@ package main
 import (
 	"fmt"
 	"github.com/akamensky/argparse"
-	"github.com/ndelphit/apkurlgrep/command/apktool"
+	"github.com/abdilahrf/apkurlgrep/command/apktool"
 	dependency "github.com/ndelphit/apkurlgrep/command/dependency"
-	"github.com/ndelphit/apkurlgrep/directory"
-	"github.com/ndelphit/apkurlgrep/extractor"
+	"github.com/abdilahrf/apkurlgrep/directory"
+	"github.com/abdilahrf/apkurlgrep/extractor"
 	"os"
 )
 
